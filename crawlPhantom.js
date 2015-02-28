@@ -111,7 +111,7 @@ function readNext(){
 					if(lol == -1){
 		    			console.log('NotFound! ' + link + '-> ' + (i+1) +  ' of ' + lines.length);
 		    			iFails++;
-		    			escreveFailed(link);
+		    			escreveFailed(link+',');
 		    		}
 		    		else if(lol.toString().indexOf('/')==-1 && isNaN(lol))
 		        	{
