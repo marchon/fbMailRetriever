@@ -63,7 +63,17 @@ setTimeout(function(){
 },8000);
 
 
+var batchCount = 0;
+
 function readNext(){
+	if(batchCount>config.Crawler.BatchSize)
+	{
+		setTimeout(readNext,config.Crawler.TimeOutBatch);
+		console.log("BatchSize reached: " + batchCount + " -> now waiting " + config.Crawler.TimeOutBatch + "ms...");
+		batchCount = 0;
+		return;
+	}
+	batchCount++;
   	page = require('webpage').create();
   	page.settings.loadImages = false;
   	//page.settings.javascriptEnabled = false;

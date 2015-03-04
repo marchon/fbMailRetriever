@@ -2,5 +2,9 @@
 	"FB": {
 		"name" : "rafael@bravo.com.br",
 		"password" : "XXXX"
+	},
+	"Crawler":{
+		"BatchSize":4,
+		"TimeOutBatch":5000
 	}
 }
