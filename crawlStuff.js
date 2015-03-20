@@ -221,6 +221,7 @@ if(config.groups && config.groups.length > 0)
     return obj;
   });
 }
+listaObjs = config.Seed;
 
 casper.then(function(){
   this.echo('Organizing info:');
@@ -245,26 +246,12 @@ var fetchNext = function(){
   {
     _evturl = "https://www.facebook.com/browse/group_members/?gid="+evtDaVez+"&edge=groups%3Amembers";
   }
-  
-  this.echo(_evturl);
-  //var _evturl = "https://www.facebook.com/browse/event_members/?id="+evtDaVez+"&edge=temporal_groups%3Ainvitees_of_temporal_group";
-  casper.then(function() {
-    this.capture('latest1.png', undefined, {
-     format: 'jpg',
-     quality: 75
-    });
-  });
 
   casper.then(function() {             // STEP:  Wait 3 seconds in order not to be considered SPAM
     this.echo("wait 3s, so that i'm not a crawler");
     this.wait( 3*1000 );
   });
-  casper.then(function(){
-    this.capture('latest2.png', undefined, {
-     format: 'jpg',
-     quality: 75
-    });
-  });
+ 
   casper.thenOpen(_evturl, function() {
   	try{
 			//fs.write("ol.html",this.getHTML('html'));
@@ -275,20 +262,15 @@ var fetchNext = function(){
 
 		}
 	});
-casper.then(function(){
-    this.capture('latest3.png', undefined, {
-     format: 'jpg',
-     quality: 75
-    });
-  });
+
 	casper.label( "CHECK_START" );            // STEP:  LOOP_START label here:  *** DO NOT put then() around label() for labeling
 	var lista;
-	casper.then(function(){
-		this.capture('latest.png', undefined, {
-     format: 'jpg',
-     quality: 75
-    });
-	});
+	// casper.then(function(){
+	// 	this.capture('latest.png', undefined, {
+ //     format: 'jpg',
+ //     quality: 75
+ //    });
+	// });
 	casper.then(function() {
 		btn = this.evaluate(function(){
 			return document.querySelectorAll('.morePager').length;
@@ -320,8 +302,7 @@ casper.then(function(){
 	casper.then(function() {
     casper.goto( "CHECK_START" );
   });
-
-	casper.label( "LOOP_END" );              // STEP:  LOOP_END label here:   *** DO NOT put then() around label() for labeling
+  casper.label( "LOOP_END" );              // STEP:  LOOP_END label here:   *** DO NOT put then() around label() for labeling
 	var listaMails = [];
   casper.then(function() {   
     casper.echo('extracting info!');

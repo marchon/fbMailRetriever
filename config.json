@@ -7,9 +7,9 @@
 		"BatchSize":4,
 		"TimeOutBatch":5000
 	},
-	"events": [
-	],
-	"groups": [
-		{"name":"Grupo1", "ID": 937526869595204}
+	"Seed": [
+		{"type":"Group", "ID": 937526869595204, "name":"Group1"},
+		{"type":"Event", "ID": 845400705506253, "name":"Evt1"},
+		{"type":"Event", "ID": 845400705506253, "name":"Evt2"}
 	]
 }
