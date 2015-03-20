@@ -1,10 +1,15 @@
 {
 	"FB": {
 		"name" : "rafael@bravo.com.br",
-		"password" : "XXXX"
+		"password" : "XXX"
 	},
 	"Crawler":{
 		"BatchSize":4,
 		"TimeOutBatch":5000
-	}
+	},
+	"events": [
+	],
+	"groups": [
+		{"name":"Grupo1", "ID": 937526869595204}
+	]
 }
