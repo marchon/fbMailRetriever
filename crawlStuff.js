@@ -322,7 +322,7 @@ var fetchNext = function(){
 
   casper.echo('should I continue?');
   iEvt++; 
-  if(iEvt < listaObjs.length)
+  if(iEvt <= listaObjs.length)
   {
     casper.echo("NEXT!");
     casper.goto("LOOP_START");

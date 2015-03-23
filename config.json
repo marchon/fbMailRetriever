@@ -8,7 +8,7 @@
 		"TimeOutBatch":5000
 	},
 	"Seed": [
-		{"type":"Group", "ID": 937526869595204, "name":"Group1"},
+		{"type":"Group", "ID": 397352323696103, "name":"OAB"},
 		{"type":"Event", "ID": 845400705506253, "name":"Evt1"},
 		{"type":"Event", "ID": 845400705506253, "name":"Evt2"}
 	]
