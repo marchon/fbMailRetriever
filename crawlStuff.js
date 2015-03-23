@@ -279,6 +279,7 @@ var fetchNext = function(){
 			return document.querySelectorAll('.uiProfileBlockContent').length;
 		});
 		this.echo('so far: '+lista);
+    casper.then(extrai);
 		if(btn && btn > 0) {
 			this.echo('More Pages available... fetching..');
 	 		casper.then(function() {             // STEP:  Click 'Next'
@@ -304,21 +305,7 @@ var fetchNext = function(){
   });
   casper.label( "LOOP_END" );              // STEP:  LOOP_END label here:   *** DO NOT put then() around label() for labeling
 	var listaMails = [];
-  casper.then(function() {   
-    casper.echo('extracting info!');
-    listaMails = this.evaluate(function(){
-     return Array.prototype.slice.call(document.querySelectorAll('.uiProfileBlockContent a')).map(function(a,v){
-      var aux = a.href.toString();
-      aux = aux.split('facebook.com/')[1];
-      aux = aux.replace('profile.php?id=','');
-      aux = aux.split('?')[0];
-      aux = aux.split('&')[0];
-      return aux + '@facebook.com'; 
-    });
-   });
-    casper.echo(listaMails.length + ' mails fetched on '+Evento+'.txt');
-    fs.write(Evento + ".txt", listaMails);
-  });
+  casper.then(extrai);
 
   casper.echo('should I continue?');
   iEvt++; 
@@ -338,3 +325,19 @@ var fetchNext = function(){
 casper.then(fetchNext);
 
 casper.run();
+
+function extrai(){
+    casper.echo('extracting info!');
+    listaMails = this.evaluate(function(){
+     return Array.prototype.slice.call(document.querySelectorAll('.uiProfileBlockContent a')).map(function(a,v){
+      var aux = a.href.toString();
+      aux = aux.split('facebook.com/')[1];
+      aux = aux.replace('profile.php?id=','');
+      aux = aux.split('?')[0];
+      aux = aux.split('&')[0];
+      return aux + '@facebook.com'; 
+    });
+   });
+    casper.echo(listaMails.length + ' mails fetched on '+Evento+'.txt');
+    fs.write(Evento + ".txt", listaMails);
+}

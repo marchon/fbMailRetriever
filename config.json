@@ -1,15 +1,13 @@
 {
 	"FB": {
-		"name" : "rafael@bravo.com.br",
-		"password" : "XXX"
+		"name" : "xvebvy@eelmail.com",
+		"password" : "midiaplex"
 	},
 	"Crawler":{
 		"BatchSize":4,
 		"TimeOutBatch":5000
 	},
 	"Seed": [
-		{"type":"Group", "ID": 397352323696103, "name":"OAB"},
-		{"type":"Event", "ID": 845400705506253, "name":"Evt1"},
-		{"type":"Event", "ID": 845400705506253, "name":"Evt2"}
+		{"type":"Group", "ID": 435929026453698, "name":"concurseiros2"}
 	]
 }
